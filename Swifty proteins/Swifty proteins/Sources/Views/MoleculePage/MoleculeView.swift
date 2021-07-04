@@ -26,11 +26,14 @@ struct MoleculeView: View {
 	var body: some View {
 		SceneView(using: MoleculeView.generateScene(by: molecule))
 			.backgroundColor(backgroundColor)
-			.onNodeSelected{ node in
-				guard let atomIndex = Int(node?.name ?? "") else {
+			.onNodeSelected{ nodes in
+				let atomNode = nodes.first(where: { !($0.name ?? "").isEmpty })
+
+				guard let atomIndex = Int(atomNode?.name ?? "") else {
 					onAtomSelected(nil)
 					return
 				}
+
 				onAtomSelected(molecule.atoms[safe: atomIndex])
 			}
 	}

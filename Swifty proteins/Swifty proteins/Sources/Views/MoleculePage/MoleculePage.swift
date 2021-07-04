@@ -39,12 +39,19 @@ struct MoleculePage: View {
 	var messageAboutSelectedAtom: some View {
 		ZStack {
 			Rectangle()
-				.fill(Color(UIColor.gray))
-				.frame(width: 200, height: 100)
-				.cornerRadius(5)
+				.background(
+					Blur(
+						style: .systemUltraThinMaterial,
+						backgroundColor: UIColor(white: 0.5, alpha: 0.4)
+					)
+				)
+				.foregroundColor(Color.gray.opacity(0))
+				.frame(width: 100, height: 100)
+				.cornerRadius(20)
 			
 			if selectedAtom != nil {
-				Text("You've selected atom \(selectedAtom!.kind.rawValue)")
+				Text("\(selectedAtom!.kind.rawValue)")
+					.font(.title)
 			}
 		}
 	}
