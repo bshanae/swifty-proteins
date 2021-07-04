@@ -7,7 +7,7 @@ struct SceneView: UIViewRepresentable {
 	private let view: SCNView
 
 	private var onNodeSelected: (SCNNode?) -> ()
-	private var backgroundColor: UIColor
+	private var backgroundColor: Color
 
 	public init(using scene: SCNScene) {
 		self.init(scene: scene)
@@ -16,7 +16,7 @@ struct SceneView: UIViewRepresentable {
 	private init(
 		scene: SCNScene,
 		onNodeSelected: @escaping (SCNNode?) -> () = { _ in },
-		backgroundColor: UIColor = UIColor.white
+		backgroundColor: Color = Color(UIColor.white)
 	) {
 		self.scene = scene
 		self.view = SCNView()
@@ -24,24 +24,36 @@ struct SceneView: UIViewRepresentable {
 		self.backgroundColor = backgroundColor
 	}
 
-	public func backgroundColor(_ color: UIColor) -> SceneView {
-		SceneView(scene: self.scene, onNodeSelected: self.onNodeSelected, backgroundColor: color)
+	public func backgroundColor(_ color: Color) -> SceneView {
+		SceneView(
+			scene: self.scene,
+			onNodeSelected: self.onNodeSelected,
+			backgroundColor: color
+		)
 	}
 
 	public func onNodeSelected(_ onNodeSelected: @escaping (SCNNode?) -> ()) -> SceneView {
-		SceneView(scene: self.scene, onNodeSelected: onNodeSelected, backgroundColor: self.backgroundColor)
+		SceneView(
+			scene: self.scene,
+			onNodeSelected: onNodeSelected,
+			backgroundColor: self.backgroundColor
+		)
 	}
 	
 	public func makeUIView(context: Context) -> SCNView {
 		view.scene = scene
-		view.scene?.background.contents = backgroundColor
+		view.backgroundColor = UIColor(backgroundColor)
 
 		view.pointOfView = scene.rootNode.childNode(withName: "camera", recursively: true)
 
 		view.allowsCameraControl = true
 		view.autoenablesDefaultLighting = true
 
-		let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(context.coordinator.handleTap(_:)))
+		let tapGesture = UITapGestureRecognizer(
+			target: context.coordinator,
+			action: #selector(context.coordinator.handleTap(_:))
+		)
+
 		view.addGestureRecognizer(tapGesture)
 		
 		return view

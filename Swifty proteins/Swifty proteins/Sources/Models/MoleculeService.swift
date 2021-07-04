@@ -14,11 +14,11 @@ class MoleculeService {
 					kind: .H
 				),
 				Atom(
-					position: SCNVector3(1, -2, -2),
+					position: SCNVector3(5, -2, -2),
 					kind: .H
 				),
 				Atom(
-					position: SCNVector3(1, 2, -2),
+					position: SCNVector3(5, 2, -2),
 					kind: .C
 				),
 				Atom(

@@ -6,16 +6,16 @@ struct MoleculeView: View {
 	private static let connectionRadius = CGFloat(0.13)
 	
 	private let molecule: Molecule
-	private let backgroundColor: UIColor
+	private let backgroundColor: Color
 	private let onAtomSelected: (Atom?) -> ()
 
-	public init(by molecule: Molecule) {
+	public init(from molecule: Molecule) {
 		self.init(molecule: molecule)
 	}
 
 	private init(
 		molecule: Molecule,
-		backgroundColor: UIColor = UIColor.white,
+		backgroundColor: Color = Color(UIColor.white),
 		onAtomSelected: @escaping (Atom?) -> () = { _ in }
 	) {
 		self.molecule = molecule
@@ -31,12 +31,11 @@ struct MoleculeView: View {
 					onAtomSelected(nil)
 					return
 				}
-
 				onAtomSelected(molecule.atoms[safe: atomIndex])
 			}
 	}
 
-	public func backgroundColor(_ color: UIColor) -> MoleculeView {
+	public func backgroundColor(_ color: Color) -> MoleculeView {
 		MoleculeView(
 			molecule: self.molecule,
 			backgroundColor: color,
@@ -104,6 +103,7 @@ struct MoleculeView: View {
 
 struct MoleculeView_Previews: PreviewProvider {
     static var previews: some View {
-		MoleculeView(by: MoleculeService.getDescription(ofMolecule: ""))
+		MoleculeView(from: MoleculeService.getDescription(ofMolecule: "")).preferredColorScheme(.light)
+		MoleculeView(from: MoleculeService.getDescription(ofMolecule: "")).preferredColorScheme(.dark)
     }
 }
