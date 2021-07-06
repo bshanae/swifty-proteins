@@ -1,4 +1,6 @@
+import SceneKit
+
 struct Molecule {
 	var atoms: [Atom]
-	var connections: [(Int, Int)]
+    var bounds: [Bound]
 }
