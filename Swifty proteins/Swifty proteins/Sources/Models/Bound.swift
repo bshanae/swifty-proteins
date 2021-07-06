@@ -1,4 +1,3 @@
-import SceneKit
 
 struct Bound{
     enum TypeOfBound: Int {

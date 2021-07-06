@@ -1,6 +1,4 @@
 import Foundation
-import SceneKit
-import SwiftUI
 
 class MoleculeService {
     var isLoad : Bool = false

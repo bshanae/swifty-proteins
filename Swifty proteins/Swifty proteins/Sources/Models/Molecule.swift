@@ -1,4 +1,3 @@
-import SceneKit
 
 struct Molecule {
 	var atoms: [Atom]
