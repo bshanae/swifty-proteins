@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
 		D11D6449268BC67D00548434 /* MoleculePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6448268BC67D00548434 /* MoleculePage.swift */; };
 		D11D644B268C4D1E00548434 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D644A268C4D1E00548434 /* SceneView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
 		D11D6448268BC67D00548434 /* MoleculePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculePage.swift; sourceTree = "<group>"; };
 		D11D644A268C4D1E00548434 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				D11D644C268CDEFD00548434 /* Atom.swift */,
+				26FDDA3C2693C7C500795142 /* Bound.swift */,
 				D11D644E268CDF1300548434 /* Molecule.swift */,
 				D11D6450268CEEF500548434 /* MoleculeService.swift */,
 			);
@@ -271,6 +274,7 @@
 				D11D6449268BC67D00548434 /* MoleculePage.swift in Sources */,
 				D11D6458268D09C500548434 /* Collection.swift in Sources */,
 				D11D645A268D92CB00548434 /* MoleculeListPage.swift in Sources */,
+				26FDDA3D2693C7C500795142 /* Bound.swift in Sources */,
 				D11D6454268CF34100548434 /* MoleculeView.swift in Sources */,
 				D11D644B268C4D1E00548434 /* SceneView.swift in Sources */,
 				D11D644F268CDF1300548434 /* Molecule.swift in Sources */,
