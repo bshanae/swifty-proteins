@@ -63,7 +63,7 @@ struct MoleculeListPage: View {
 	}
 	
 	func makeMoleculePage(id: String) -> some View {
-		MoleculePage()
+		MoleculePage.View()
 	}
 }
 

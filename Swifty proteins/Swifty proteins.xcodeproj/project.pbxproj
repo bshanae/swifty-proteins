@@ -20,6 +20,7 @@
 		D11D64612690CD7F00548434 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D64602690CD7F00548434 /* Assets.swift */; };
 		D11D64632690CDA600548434 /* Assets+MoleculeListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D64622690CDA600548434 /* Assets+MoleculeListPage.swift */; };
 		D11D64652691AF0B00548434 /* Assets+MoleculePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D64642691AF0B00548434 /* Assets+MoleculePage.swift */; };
+		D11D646B269228A700548434 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D646A269228A700548434 /* Blur.swift */; };
 		D1554A42268A629800E2BC04 /* SwiftyProteins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1554A41268A629800E2BC04 /* SwiftyProteins.swift */; };
 		D1554A44268A629800E2BC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1554A43268A629800E2BC04 /* ContentView.swift */; };
 		D1554A46268A629900E2BC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1554A45268A629900E2BC04 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		D11D64602690CD7F00548434 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		D11D64622690CDA600548434 /* Assets+MoleculeListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+MoleculeListPage.swift"; sourceTree = "<group>"; };
 		D11D64642691AF0B00548434 /* Assets+MoleculePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+MoleculePage.swift"; sourceTree = "<group>"; };
+		D11D646A269228A700548434 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D1554A3E268A629800E2BC04 /* Swifty proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1554A41268A629800E2BC04 /* SwiftyProteins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyProteins.swift; sourceTree = "<group>"; };
 		D1554A43268A629800E2BC04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,10 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				D11D6441268B89A000548434 /* App */,
-				D11D6444268BB0A300548434 /* Tools */,
 				D11D643C268A6F9E00548434 /* Models */,
 				D11D643E268A6FAB00548434 /* ViewModels */,
 				D11D643D268A6FA600548434 /* Views */,
+				D11D6444268BB0A300548434 /* Tools */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -117,8 +119,9 @@
 		D11D6444268BB0A300548434 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				D11D6447268BB0BF00548434 /* Extensions */,
 				D11D64602690CD7F00548434 /* Assets.swift */,
+				D11D64692692287F00548434 /* Views */,
+				D11D6447268BB0BF00548434 /* Extensions */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -151,6 +154,14 @@
 				D11D645C268D934E00548434 /* MoleculeSearchBar.swift */,
 			);
 			path = MoleculeListPage;
+			sourceTree = "<group>";
+		};
+		D11D64692692287F00548434 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D11D646A269228A700548434 /* Blur.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D1554A35268A629800E2BC04 = {
@@ -263,6 +274,7 @@
 				D11D6454268CF34100548434 /* MoleculeView.swift in Sources */,
 				D11D644B268C4D1E00548434 /* SceneView.swift in Sources */,
 				D11D644F268CDF1300548434 /* Molecule.swift in Sources */,
+				D11D646B269228A700548434 /* Blur.swift in Sources */,
 				D1554A44268A629800E2BC04 /* ContentView.swift in Sources */,
 				D11D645D268D934E00548434 /* MoleculeSearchBar.swift in Sources */,
 				D11D64632690CDA600548434 /* Assets+MoleculeListPage.swift in Sources */,

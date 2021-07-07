@@ -6,7 +6,7 @@ struct SceneView: UIViewRepresentable {
 	private let scene: SCNScene
 	private let view: SCNView
 
-	private var onNodeSelected: (SCNNode?) -> ()
+	private var onNodeSelected: ([SCNNode]) -> ()
 	private var backgroundColor: Color
 
 	public init(using scene: SCNScene) {
@@ -15,7 +15,7 @@ struct SceneView: UIViewRepresentable {
 
 	private init(
 		scene: SCNScene,
-		onNodeSelected: @escaping (SCNNode?) -> () = { _ in },
+		onNodeSelected: @escaping ([SCNNode]) -> () = { _ in },
 		backgroundColor: Color = Color(UIColor.white)
 	) {
 		self.scene = scene
@@ -32,7 +32,7 @@ struct SceneView: UIViewRepresentable {
 		)
 	}
 
-	public func onNodeSelected(_ onNodeSelected: @escaping (SCNNode?) -> ()) -> SceneView {
+	public func onNodeSelected(_ onNodeSelected: @escaping ([SCNNode]) -> ()) -> SceneView {
 		SceneView(
 			scene: self.scene,
 			onNodeSelected: onNodeSelected,
@@ -44,10 +44,14 @@ struct SceneView: UIViewRepresentable {
 		view.scene = scene
 		view.backgroundColor = UIColor(backgroundColor)
 
-		view.pointOfView = scene.rootNode.childNode(withName: "camera", recursively: true)
-
 		view.allowsCameraControl = true
 		view.autoenablesDefaultLighting = true
+		view.antialiasingMode = .multisampling4X
+
+		view.pointOfView = scene.rootNode.childNode(
+			withName: "camera",
+			recursively: true
+		)
 
 		let tapGesture = UITapGestureRecognizer(
 			target: context.coordinator,
@@ -68,9 +72,9 @@ struct SceneView: UIViewRepresentable {
 	
 	public class Coordinator: NSObject {
 		private let view: SCNView
-		private let onNodeSelected: (SCNNode?) -> ()
+		private let onNodeSelected: ([SCNNode]) -> ()
 
-		init(_ view: SCNView, _ onNodeSelected: @escaping (SCNNode?) -> ()) {
+		init(_ view: SCNView, _ onNodeSelected: @escaping ([SCNNode]) -> ()) {
 			self.view = view
 			self.onNodeSelected = onNodeSelected
 
@@ -79,9 +83,15 @@ struct SceneView: UIViewRepresentable {
 		
 		@objc func handleTap(_ gestureRecognize: UIGestureRecognizer) {
 			let tapPoint = gestureRecognize.location(in: view)
-			let hitResults = view.hitTest(tapPoint, options: [:])
 
-			onNodeSelected(hitResults[safe: 0]?.node)
+			let hitResults = view.hitTest(
+				tapPoint,
+				options: [
+					SCNHitTestOption.searchMode: SCNHitTestSearchMode.all.rawValue
+				]
+			)
+
+			onNodeSelected(hitResults.map( {$0.node }))
 		}
 	}
 }
