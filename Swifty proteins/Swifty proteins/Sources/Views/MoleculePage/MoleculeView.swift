@@ -54,25 +54,29 @@ struct MoleculeView: View {
 		)
 	}
 
-	private static func generateScene(by Molecule: Molecule) -> SCNScene {
+	private static func generateScene(by molecule: Molecule) -> SCNScene {
 		let scene = SCNScene()
-		scene.rootNode.addChildNode(generateMolecule(from: Molecule))
+		scene.rootNode.addChildNode(generateMolecule(from: molecule))
 
 		return scene
 	}
 	
-	private static func generateMolecule(from Molecule: Molecule) -> SCNNode {
+	private static func generateMolecule(from molecule: Molecule) -> SCNNode {
 		let root = SCNNode()
 		
-		for (index, atom) in Molecule.atoms.enumerated() {
+		for (index, atom) in molecule.atoms.enumerated() {
 			root.addChildNode(generateAtom(from: atom, usingIndex: index))
 		}
 
-		for connection in Molecule.connections {
-			let startAtom = Molecule.atoms[connection.0]
-			let endAtom = Molecule.atoms[connection.1]
+		for bound in molecule.bounds {
+			let startAtom = molecule.atoms[safe: bound.atomId]
+			let endAtom = molecule.atoms[safe: bound.boundAtomId]
 
-			root.addChildNode(generateConnection(start: startAtom, end: endAtom))
+			if startAtom != nil && endAtom != nil {
+				root.addChildNode(generateBound(start: startAtom!, end: endAtom!))
+			} else {
+				print("Can't create bound for atom with indices \(bound.atomId) and \(bound.boundAtomId)")
+			}
 		}
 		
 		return root
@@ -80,7 +84,7 @@ struct MoleculeView: View {
 	
 	private static func generateAtom(from atom: Atom, usingIndex index: Int) -> SCNNode {
 		let geometry = SCNSphere(radius: atomRadius)
-		geometry.materials.first?.diffuse.contents = atom.color
+		geometry.materials.first?.diffuse.contents = atom.element.color
 		
 		let node = SCNNode(geometry: geometry)
 		node.name = String(index)
@@ -89,9 +93,9 @@ struct MoleculeView: View {
 		return node
 	}
 
-	private static func generateConnection(start startAtom: Atom, end endAtom: Atom) -> SCNNode {
+	private static func generateBound(start startAtom: Atom, end endAtom: Atom) -> SCNNode {
 		let distanceBetweenAtoms = distance(startAtom.position, endAtom.position)
-		let centerBetweenAtoms = (endAtom.position - startAtom.position) / 2
+		let centerBetweenAtoms = startAtom.position + (endAtom.position - startAtom.position) / 2
 
 		let geometry = SCNCylinder(radius: connectionRadius, height: CGFloat(distanceBetweenAtoms))
 		geometry.materials.first?.diffuse.contents = UIColor.lightGray
@@ -106,7 +110,7 @@ struct MoleculeView: View {
 
 struct MoleculeView_Previews: PreviewProvider {
     static var previews: some View {
-		MoleculeView(from: MoleculeService.getDescription(ofMolecule: "")).preferredColorScheme(.light)
-		MoleculeView(from: MoleculeService.getDescription(ofMolecule: "")).preferredColorScheme(.dark)
+		MoleculeView(from: MoleculeService().getDescription(ofMolecule: "001")).preferredColorScheme(.light)
+		MoleculeView(from: MoleculeService().getDescription(ofMolecule: "001")).preferredColorScheme(.dark)
     }
 }

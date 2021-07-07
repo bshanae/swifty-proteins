@@ -48,9 +48,9 @@ class MoleculeService {
                     id += 1
                 } else if statusData && (i < 5 + atomCount + linkCount) {
                     let atomId = Int(info[0]) ?? 0
-                    let boundAtomId = Int(info[1]) ?? 0
-                    let typeOfBound = Int(info[2]) ?? 1
-                    self.molecule.bounds.append(Bound(atomId: atomId, boundAtomId: boundAtomId, typeOfBound: typeOfBound))
+                    let boundAtomId = (Int(info[1]) ?? 0) - 1 // ?
+                    let typeOfBound = (Int(info[2]) ?? 0) - 1 // ?
+					self.molecule.bounds.append(Bound(atomId: atomId, boundAtomId: boundAtomId, typeOfBound: typeOfBound))
                 }
                 i += 1
             }

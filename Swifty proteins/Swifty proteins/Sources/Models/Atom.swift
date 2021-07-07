@@ -1,8 +1,7 @@
 import SceneKit
 
 struct Atom {
-    
-    struct Element{
+    struct Element {
         let color: UIColor
         let name: String
         let atomRadius: CGFloat
