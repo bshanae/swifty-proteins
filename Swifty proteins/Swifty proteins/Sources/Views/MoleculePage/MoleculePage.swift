@@ -46,7 +46,7 @@ extension MoleculePage {
 		}
 		
 		var moleculeView: some SwiftUI.View {
-			MoleculeView(from: MoleculeService.getDescription(ofMolecule: ""))
+			MoleculeView(from: MoleculeService().getDescription(ofMolecule: ""))
 				.backgroundColor(Assets.MoleculePage.BackgroundColor)
 				.onAtomSelected{ selectedAtom in
 					self.selectedAtom = selectedAtom
