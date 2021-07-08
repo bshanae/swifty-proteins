@@ -26,6 +26,8 @@
 		D1554A44268A629800E2BC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1554A43268A629800E2BC04 /* ContentView.swift */; };
 		D1554A46268A629900E2BC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1554A45268A629900E2BC04 /* Assets.xcassets */; };
 		D1554A49268A629900E2BC04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1554A48268A629900E2BC04 /* Preview Assets.xcassets */; };
+		D16AC2F02696BCDD00D97F1F /* Atom+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16AC2EF2696BCDD00D97F1F /* Atom+Kind.swift */; };
+		D16AC2F22696BE8D00D97F1F /* MoleculeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16AC2F12696BE8D00D97F1F /* MoleculeRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		D1554A45268A629900E2BC04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1554A48268A629900E2BC04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1554A4A268A629900E2BC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D16AC2EF2696BCDD00D97F1F /* Atom+Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Atom+Kind.swift"; sourceTree = "<group>"; };
+		D16AC2F12696BE8D00D97F1F /* MoleculeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +78,7 @@
 		D11D643C268A6F9E00548434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D11D644C268CDEFD00548434 /* Atom.swift */,
-				26FDDA3C2693C7C500795142 /* Bound.swift */,
-				D11D644E268CDF1300548434 /* Molecule.swift */,
-				D11D6450268CEEF500548434 /* MoleculeService.swift */,
+				D16AC2F32696BE9600D97F1F /* MoleculeService */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +203,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D16AC2F32696BE9600D97F1F /* MoleculeService */ = {
+			isa = PBXGroup;
+			children = (
+				D11D6450268CEEF500548434 /* MoleculeService.swift */,
+				D16AC2F12696BE8D00D97F1F /* MoleculeRequest.swift */,
+				D16AC2F42696BEA200D97F1F /* Molecule */,
+			);
+			path = MoleculeService;
+			sourceTree = "<group>";
+		};
+		D16AC2F42696BEA200D97F1F /* Molecule */ = {
+			isa = PBXGroup;
+			children = (
+				D11D644E268CDF1300548434 /* Molecule.swift */,
+				26FDDA3C2693C7C500795142 /* Bound.swift */,
+				D16AC2F52696BEAD00D97F1F /* Atom */,
+			);
+			path = Molecule;
+			sourceTree = "<group>";
+		};
+		D16AC2F52696BEAD00D97F1F /* Atom */ = {
+			isa = PBXGroup;
+			children = (
+				D11D644C268CDEFD00548434 /* Atom.swift */,
+				D16AC2EF2696BCDD00D97F1F /* Atom+Kind.swift */,
+			);
+			path = Atom;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,8 +309,10 @@
 				D11D644B268C4D1E00548434 /* SceneView.swift in Sources */,
 				D114B2A82695F7450064F4C9 /* Blur.swift in Sources */,
 				D11D644F268CDF1300548434 /* Molecule.swift in Sources */,
+				D16AC2F02696BCDD00D97F1F /* Atom+Kind.swift in Sources */,
 				D1554A44268A629800E2BC04 /* ContentView.swift in Sources */,
 				D11D645D268D934E00548434 /* MoleculeSearchBar.swift in Sources */,
+				D16AC2F22696BE8D00D97F1F /* MoleculeRequest.swift in Sources */,
 				D11D64632690CDA600548434 /* Assets+MoleculeListPage.swift in Sources */,
 				D11D64612690CD7F00548434 /* Assets.swift in Sources */,
 				D11D64652691AF0B00548434 /* Assets+MoleculePage.swift in Sources */,

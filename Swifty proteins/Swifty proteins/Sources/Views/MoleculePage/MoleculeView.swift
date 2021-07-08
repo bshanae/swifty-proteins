@@ -84,7 +84,7 @@ struct MoleculeView: View {
 	
 	private static func generateAtom(from atom: Atom, usingIndex index: Int) -> SCNNode {
 		let geometry = SCNSphere(radius: atomRadius)
-		geometry.materials.first?.diffuse.contents = atom.element.color
+		geometry.materials.first?.diffuse.contents = atom.kind.color
 		
 		let node = SCNNode(geometry: geometry)
 		node.name = String(index)
@@ -110,7 +110,8 @@ struct MoleculeView: View {
 
 struct MoleculeView_Previews: PreviewProvider {
     static var previews: some View {
-		MoleculeView(from: MoleculeService().getDescription(ofMolecule: "001")).preferredColorScheme(.light)
-		MoleculeView(from: MoleculeService().getDescription(ofMolecule: "001")).preferredColorScheme(.dark)
+		Text("")
+//		MoleculeView(from: MoleculeService.requestMolecule(ofMolecule: "001")).preferredColorScheme(.light)
+//		MoleculeView(from: MoleculeService.requestMolecule(ofMolecule: "001")).preferredColorScheme(.dark)
     }
 }

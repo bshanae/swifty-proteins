@@ -27,13 +27,15 @@ struct MoleculePage {
 
 extension MoleculePage {
 	public struct View: SwiftUI.View {
+		@StateObject private var moleculeRequest: MoleculeRequest = MoleculeService.requestMolecule(ofMolecule: "001")
+		
 		@StateObject private var viewModel = ViewModel()
 		@State private var selectedAtom: Atom?
 		
 		var body: some SwiftUI.View {
 			ZStack {
 				moleculeView
-				
+
 				if !viewModel.hideMessageAfterTimeout && selectedAtom != nil {
 					VStack {
 						Spacer()
@@ -46,13 +48,21 @@ extension MoleculePage {
 		}
 		
 		var moleculeView: some SwiftUI.View {
-			MoleculeView(from: MoleculeService().getDescription(ofMolecule: "001"))
-				.backgroundColor(Assets.MoleculePage.BackgroundColor)
-				.onAtomSelected{ selectedAtom in
-					self.selectedAtom = selectedAtom
-					self.viewModel.startTimer()
-				}
-				.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+			switch moleculeRequest.status {
+			case .success(let molecule):
+				let view = MoleculeView(from: molecule)
+					.backgroundColor(Assets.MoleculePage.BackgroundColor)
+					.onAtomSelected{ selectedAtom in
+						self.selectedAtom = selectedAtom
+						self.viewModel.startTimer()
+					}
+					.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
+				
+				return AnyView(view)
+
+			default:
+				return AnyView(EmptyView())
+			}
 		}
 		
 		var shareButton: some SwiftUI.View {

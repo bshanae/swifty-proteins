@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct MoleculeListPage: View {
-	
 	static let elementSize = CGFloat(90)
 	
 	@State var filter = ""
