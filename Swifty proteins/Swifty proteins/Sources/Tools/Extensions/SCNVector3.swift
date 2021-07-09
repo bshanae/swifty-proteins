@@ -3,6 +3,10 @@ import SceneKit
 
 public extension SCNVector3
 {
+	init(all value: Float) {
+		self.init(value, value, value)
+	}
+
 	/**
 	* Negates the vector described by SCNVector3 and returns
 	* the result as a new SCNVector3.
@@ -207,4 +211,12 @@ public func project(_ vectorToProject: SCNVector3, _ projectionVector: SCNVector
 	let scale: Float = dotProduct(projectionVector, vectorToProject) / dotProduct(projectionVector, projectionVector)
 	let v: SCNVector3 = projectionVector * scale
 	return v
+}
+
+public func min(_ a: SCNVector3, _ b: SCNVector3) -> SCNVector3 {
+	SCNVector3(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z))
+}
+
+public func max(_ a: SCNVector3, _ b: SCNVector3) -> SCNVector3 {
+	SCNVector3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z))
 }

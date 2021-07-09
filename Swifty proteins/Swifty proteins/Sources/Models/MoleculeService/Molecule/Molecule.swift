@@ -1,5 +1,5 @@
 
 struct Molecule {
-	var atoms: [Atom]
-    var bounds: [Bound]
+	let atoms: [Atom]
+    let bounds: [Bound]
 }
