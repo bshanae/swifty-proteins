@@ -21,6 +21,7 @@ extension MoleculePage {
 					VStack {
 						Spacer()
 						messageAboutSelectedAtom
+						Spacer().frame(height: 20)
 					}
 				}
 			}
@@ -52,25 +53,21 @@ extension MoleculePage {
 		}
 		
 		var messageAboutSelectedAtom: some SwiftUI.View {
-			ZStack {
-				Rectangle()
-					.background(
-						Blur(
-							style: .systemUltraThinMaterial,
-							backgroundColor: UIColor(white: 0.5, alpha: 0.4)
+			Text("\(selectedAtom?.kind.name ?? "?")")
+				.font(.title)
+				.padding(.vertical, 12)
+				.padding(.horizontal, 16)
+				.background(
+					Rectangle()
+						.background(
+							Blur(
+								style: .systemUltraThinMaterial,
+								backgroundColor: UIColor(white: 0.5, alpha: 0.4)
+							)
 						)
-					)
-					.foregroundColor(Color.gray.opacity(0))
-					.frame(width: 100, height: 100)
-					.cornerRadius(20)
-					.zIndex(1)
-				
-				
-				Text("\(selectedAtom?.kind.rawValue ?? "?")")
-					.font(.title)
-					.zIndex(2)
-				
-			}
+						.foregroundColor(Color.gray.opacity(0))
+						.cornerRadius(5)
+				)
 		}
 	}
 }
