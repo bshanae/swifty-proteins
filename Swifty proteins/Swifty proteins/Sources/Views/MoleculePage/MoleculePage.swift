@@ -3,25 +3,6 @@ import SwiftUI
 // Temprory
 struct MoleculePage {
 	public class ViewModel: ObservableObject {
-		@Published public var hideMessageAfterTimeout = false
-
-		private var timerForRemovingMessage: Timer?
-
-		public init() {
-			startTimer()
-		}
-		
-		public func startTimer() {
-			hideMessageAfterTimeout = false
-
-			timerForRemovingMessage?.invalidate()
-			timerForRemovingMessage = Timer.scheduledTimer(
-				withTimeInterval: 1,
-				repeats: false
-			) { [weak self] timer in
-				self?.hideMessageAfterTimeout = true
-			}
-		}
 	}
 }
 
@@ -36,7 +17,7 @@ extension MoleculePage {
 			ZStack {
 				moleculeView
 
-				if !viewModel.hideMessageAfterTimeout && selectedAtom != nil {
+				if selectedAtom != nil {
 					VStack {
 						Spacer()
 						messageAboutSelectedAtom
@@ -54,7 +35,6 @@ extension MoleculePage {
 					.backgroundColor(Assets.MoleculePage.BackgroundColor)
 					.onAtomSelected{ selectedAtom in
 						self.selectedAtom = selectedAtom
-						self.viewModel.startTimer()
 					}
 					.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 				
