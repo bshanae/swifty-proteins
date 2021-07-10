@@ -31,11 +31,9 @@ struct MoleculeListPage: View {
 	
 	var grid: some View {
 		LazyVGrid(columns: columns, spacing: 10) {
-			ForEach(elements.indices) { index in
-				NavigationLink(
-					destination: makeMoleculePage(id: elements[index])
-				) {
-					makeElement(text: elements[index])
+			ForEach(elements, id: \.self) { element in
+				NavigationLink(destination: makeMoleculePage(id: element)) {
+					makeElement(text: element)
 				}
 			}
 		}
