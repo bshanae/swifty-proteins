@@ -46,5 +46,81 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need to unlock your data.
+import LocalAuthentication
+
+
+struct IntroView: View {
+    
+    enum AccessError {
+        case notProblem
+        case noFace
+        case noBiometrics
+    }
+    
+    @State var isActive:Bool = false
+    
+    @State private var isUnlocked = false
+    
+    @State private var accessError:AccessError = .notProblem
+    
+    let splashDelay = 2.5
+    
+    var body: some View {
+        ZStack {
+            if self.isActive {
+                VStack {
+                    if self.isUnlocked {
+                        ContentView()
+                    } else {
+                        ZStack {
+                            VStack {
+                                if self.accessError == .noFace {
+                                    Text(&quot;No Face&quot;)
+                                } else if self.accessError == .noBiometrics {
+                                    Text(&quot;No Biometrics&quot;)
+                                }
+                                Image(systemName: &quot;lock.slash&quot;)
+                            }
+                        }
+                    }
+                }
+                .onAppear(perform: authenticate)
+            } else {
+                Image(&quot;logo&quot;)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            }
+        }.onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.splashDelay) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &amp;error) {
+            let reason = &quot;We need to unlock your data.&quot;
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        self.isUnlocked = true
+                    } else {
+                        self.accessError = .noFace
+                    }
+                }
+            }
+        } else {
+            self.accessError = .noBiometrics
+        }
+    } 
+}</string>
 </dict>
 </plist>
