@@ -94,4 +94,8 @@ struct SceneView: UIViewRepresentable {
 			onNodeSelected(hitResults.map( {$0.node }))
 		}
 	}
+
+	public func makeSnapshot() -> UIImage {
+		view.snapshot()
+	}
 }

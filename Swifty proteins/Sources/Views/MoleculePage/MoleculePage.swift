@@ -5,14 +5,17 @@ struct MoleculePage {
 		@State private var selectedAtom: Atom?
 		
 		private let molecule: Molecule
+		private var moleculeView: MoleculeView?
 		
 		public init(ofMolecule molecule: Molecule) {
 			self.molecule = molecule
+			self.moleculeView = makeMoleculeView()
 		}
 		
 		var body: some SwiftUI.View {
 			ZStack {
 				moleculeView
+					.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 				
 				if selectedAtom != nil {
 					VStack {
@@ -26,19 +29,25 @@ struct MoleculePage {
 			.navigationBarItems(trailing: shareButton)
 		}
 		
-		var moleculeView: some SwiftUI.View {
+		private func makeMoleculeView() -> MoleculeView {
 			MoleculeView(from: molecule)
 				.backgroundColor(Assets.MoleculePage.BackgroundColor)
 				.onAtomSelected{ selectedAtom in
 					self.selectedAtom = selectedAtom
 				}
-				.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 		}
 		
 		var shareButton: some SwiftUI.View {
-			Button(action: {}) {
-				Image(systemName: "square.and.arrow.up")
-			}
+			Button(
+				action: {
+					if moleculeView != nil {
+						ImageSharingService.share(image: moleculeView!.makeSnapshot())
+					}
+				}
+				, label: {
+					Image(systemName: "square.and.arrow.up")
+				}
+			)
 		}
 		
 		var messageAboutSelectedAtom: some SwiftUI.View {

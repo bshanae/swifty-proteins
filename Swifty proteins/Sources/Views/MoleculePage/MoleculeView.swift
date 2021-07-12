@@ -9,6 +9,9 @@ struct MoleculeView: View {
 	private let backgroundColor: Color
 	private let onAtomSelected: (Atom?) -> ()
 
+	private let scene: SCNScene
+	private var sceneView: SceneView?
+
 	public init(from molecule: Molecule) {
 		self.init(molecule: molecule)
 	}
@@ -21,10 +24,11 @@ struct MoleculeView: View {
 		self.molecule = molecule
 		self.backgroundColor = backgroundColor
 		self.onAtomSelected = onAtomSelected
+		self.scene = MoleculeView.generateScene(by: molecule)
 	}
 
 	var body: some View {
-		SceneView(using: MoleculeView.generateScene(by: molecule))
+		SceneView(using: scene)
 			.backgroundColor(backgroundColor)
 			.onNodeSelected{ nodes in
 				let atomNode = nodes.first(where: { !($0.name ?? "").isEmpty })
@@ -105,6 +109,14 @@ struct MoleculeView: View {
 		node.look(at: endAtom.position, up: SCNVector3(1, 0, 0), localFront: SCNVector3(0, 1, 0))
 		
 		return node
+	}
+
+	public func makeSnapshot() -> UIImage {
+		guard sceneView != nil else {
+			return UIImage()
+		}
+
+		return sceneView!.makeSnapshot()
 	}
 }
 

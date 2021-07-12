@@ -32,6 +32,7 @@
 		D1EBAC85269B36DC004CB50F /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC84269B36DC004CB50F /* LazyView.swift */; };
 		D1EBAC88269B3D0B004CB50F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1EBAC87269B3D0B004CB50F /* Alamofire */; };
 		D1EBAC8A269B60B5004CB50F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC89269B60B5004CB50F /* UIImage.swift */; };
+		D1EBAC91269CD70F004CB50F /* ImageSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		D1EBAC7D269B0DFC004CB50F /* MoleculeListPage+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoleculeListPage+ViewModel.swift"; sourceTree = "<group>"; };
 		D1EBAC84269B36DC004CB50F /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		D1EBAC89269B60B5004CB50F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageSharingService.swift; path = ../../../../../../Documents/ImageSharingService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D16AC2F32696BE9600D97F1F /* MoleculeService */,
+				D1EBAC8D269CD6EE004CB50F /* ImageSharingService */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -251,6 +254,14 @@
 			path = MoleculeListPage;
 			sourceTree = "<group>";
 		};
+		D1EBAC8D269CD6EE004CB50F /* ImageSharingService */ = {
+			isa = PBXGroup;
+			children = (
+				D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */,
+			);
+			path = ImageSharingService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +340,7 @@
 			files = (
 				D11D6449268BC67D00548434 /* MoleculePage.swift in Sources */,
 				D11D6458268D09C500548434 /* Collection.swift in Sources */,
+				D1EBAC91269CD70F004CB50F /* ImageSharingService.swift in Sources */,
 				D11D645A268D92CB00548434 /* MoleculeListPage+View.swift in Sources */,
 				26FDDA3D2693C7C500795142 /* Bound.swift in Sources */,
 				D11D6454268CF34100548434 /* MoleculeView.swift in Sources */,
