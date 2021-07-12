@@ -1,16 +1,17 @@
 import Foundation
+import Alamofire
 
 class MoleculeService {
-	public static func requestMolecule(ofMolecule moleculeId: String) -> MoleculeRequest {
+	public static func requestMolecule(withId moleculeId: String) -> MoleculeRequest {
 		let moleculeRequest = MoleculeRequest()
 		
 		downloadMolecule(
 			ofMolecule: moleculeId,
 			onResult: { (data, error) in
 				if error != nil {
-					moleculeRequest.status = .error
+					moleculeRequest.status = .error(message: error!)
 				} else {
-					moleculeRequest.status = .success(parseMolecule(moleculeId: moleculeId, file: data!))
+					moleculeRequest.status = .success(molecule: parseMolecule(moleculeId: moleculeId, file: data!))
 				}
 			})
 		
@@ -60,7 +61,7 @@ class MoleculeService {
 			}
 		}
 		
-		return Molecule(atoms: atoms, bounds: bounds)
+		return Molecule(id: moleculeId, atoms: atoms, bounds: bounds)
 	}
 	
 	
@@ -68,24 +69,17 @@ class MoleculeService {
 		ofMolecule moleculeId: String,
 		onResult: @escaping (_ data: String?, _ error: String?) -> ()
 	) {
-		let urlAsString = "https://files.rcsb.org/ligands/view/\(moleculeId.uppercased())_ideal.sdf"
-		guard let urlToGet = URL(string: urlAsString) else {
-			onResult(nil, "Can't create URL")
-			return
-		}
-		
-		let session = URLSession.shared
-		let sessionTask = session.dataTask(
-			with: urlToGet,
-			completionHandler: { (data, response, error) in
-				guard let data = data else {
-					onResult(nil, error!.localizedDescription)
-					return
+		let url = "https://files.rcsb.org/ligands/view/\(moleculeId.uppercased())_ideal.sdf"
+
+		AF
+			.download(url)
+			.validate()
+			.responseData{ response in
+				if response.value != nil {
+					onResult(String(data: response.value!, encoding: String.Encoding.utf8), nil)
+				} else {
+					onResult(nil, response.error?.localizedDescription)
 				}
-				
-				onResult(String(data: data, encoding: .utf8), nil)
-			})
-		
-		sessionTask.resume()
+			}
 	}
 }

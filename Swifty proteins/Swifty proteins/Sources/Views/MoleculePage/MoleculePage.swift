@@ -1,22 +1,19 @@
 import SwiftUI
 
-// Temprory
 struct MoleculePage {
-	public class ViewModel: ObservableObject {
-	}
-}
-
-extension MoleculePage {
-	public struct View: SwiftUI.View {
-		@StateObject private var moleculeRequest: MoleculeRequest = MoleculeService.requestMolecule(ofMolecule: "001")
-		
-		@StateObject private var viewModel = ViewModel()
+	struct View: SwiftUI.View {
 		@State private var selectedAtom: Atom?
+		
+		private let molecule: Molecule
+		
+		public init(ofMolecule molecule: Molecule) {
+			self.molecule = molecule
+		}
 		
 		var body: some SwiftUI.View {
 			ZStack {
 				moleculeView
-
+				
 				if selectedAtom != nil {
 					VStack {
 						Spacer()
@@ -25,25 +22,17 @@ extension MoleculePage {
 					}
 				}
 			}
-			.navigationBarTitle(Text("Hello"), displayMode: .inline)
+			.navigationBarTitle(Text(molecule.id), displayMode: .inline)
 			.navigationBarItems(trailing: shareButton)
 		}
 		
 		var moleculeView: some SwiftUI.View {
-			switch moleculeRequest.status {
-			case .success(let molecule):
-				let view = MoleculeView(from: molecule)
-					.backgroundColor(Assets.MoleculePage.BackgroundColor)
-					.onAtomSelected{ selectedAtom in
-						self.selectedAtom = selectedAtom
-					}
-					.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
-				
-				return AnyView(view)
-
-			default:
-				return AnyView(EmptyView())
-			}
+			MoleculeView(from: molecule)
+				.backgroundColor(Assets.MoleculePage.BackgroundColor)
+				.onAtomSelected{ selectedAtom in
+					self.selectedAtom = selectedAtom
+				}
+				.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 		}
 		
 		var shareButton: some SwiftUI.View {
@@ -55,8 +44,7 @@ extension MoleculePage {
 		var messageAboutSelectedAtom: some SwiftUI.View {
 			Text("\(selectedAtom?.kind.name ?? "?")")
 				.font(.title)
-				.padding(.vertical, 12)
-				.padding(.horizontal, 16)
+				.padding(18)
 				.background(
 					Rectangle()
 						.background(
@@ -72,9 +60,9 @@ extension MoleculePage {
 	}
 }
 
-struct MoleculePage_Previews: PreviewProvider {
-	static var previews: some SwiftUI.View {
-		MoleculePage.View().preferredColorScheme(.light)
-		MoleculePage.View().preferredColorScheme(.dark)
-	}
-}
+//struct MoleculePage_Previews: PreviewProvider {
+//	static var previews: some SwiftUI.View {
+//		MoleculePage().preferredColorScheme(.light)
+//		MoleculePage().preferredColorScheme(.dark)
+//	}
+//}

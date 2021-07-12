@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Blur: UIViewRepresentable {
 	public var style: UIBlurEffect.Style = .systemUltraThinMaterialDark
-	public var backgroundColor = UIColor.white
+	public var backgroundColor = UIColor.white.withAlphaComponent(0)
 	
 	public func makeUIView(context: Context) -> UIVisualEffectView {
 		let effect = UIVisualEffectView(effect: UIBlurEffect(style: style))

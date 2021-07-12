@@ -4,7 +4,7 @@ import SwiftUI
 struct SwiftyProteinsApp: App {
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			IntroView()
 		}
 	}
 }

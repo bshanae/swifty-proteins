@@ -3,9 +3,9 @@ import Combine
 class MoleculeRequest: ObservableObject {
 	public enum Status {
 		case pending
-		case error
-		case success(Molecule)
+		case error(message: String)
+		case success(molecule: Molecule)
 	}
 	
-	@Published var status: Status = .pending
+	@Published public var status: Status = .pending
 }
