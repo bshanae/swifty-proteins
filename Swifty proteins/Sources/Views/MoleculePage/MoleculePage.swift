@@ -5,16 +5,16 @@ struct MoleculePage {
 		@State private var selectedAtom: Atom?
 		
 		private let molecule: Molecule
-		private var moleculeView: MoleculeView?
+		private let temporary: Temporary
 		
 		public init(ofMolecule molecule: Molecule) {
 			self.molecule = molecule
-			self.moleculeView = makeMoleculeView()
+			self.temporary = Temporary()
 		}
 		
 		var body: some SwiftUI.View {
 			ZStack {
-				moleculeView
+				makeMoleculeView()
 					.ignoresSafeArea(edges: /*@START_MENU_TOKEN@*/.bottom/*@END_MENU_TOKEN@*/)
 				
 				if selectedAtom != nil {
@@ -29,26 +29,38 @@ struct MoleculePage {
 			.navigationBarItems(trailing: shareButton)
 		}
 		
+		// MARK: - Molecule view
+		
 		private func makeMoleculeView() -> MoleculeView {
-			MoleculeView(from: molecule)
+			temporary.moleculeView = MoleculeView(from: molecule)
 				.backgroundColor(Assets.MoleculePage.BackgroundColor)
 				.onAtomSelected{ selectedAtom in
 					self.selectedAtom = selectedAtom
 				}
+
+			return temporary.moleculeView!
 		}
+
+		private class Temporary {
+			public var moleculeView: MoleculeView?
+		}
+
+		// MARK: - Share button
 		
 		var shareButton: some SwiftUI.View {
 			Button(
 				action: {
-					if moleculeView != nil {
-						ImageSharingService.share(image: moleculeView!.makeSnapshot())
+					if temporary.moleculeView != nil {
+						ImageSharingService.share(image: temporary.moleculeView!.makeSnapshot())
 					}
-				}
-				, label: {
+				},
+				label: {
 					Image(systemName: "square.and.arrow.up")
 				}
 			)
 		}
+
+		// MARK: - Message
 		
 		var messageAboutSelectedAtom: some SwiftUI.View {
 			Text("\(selectedAtom?.kind.name ?? "?")")
@@ -68,10 +80,3 @@ struct MoleculePage {
 		}
 	}
 }
-
-//struct MoleculePage_Previews: PreviewProvider {
-//	static var previews: some SwiftUI.View {
-//		MoleculePage().preferredColorScheme(.light)
-//		MoleculePage().preferredColorScheme(.dark)
-//	}
-//}
