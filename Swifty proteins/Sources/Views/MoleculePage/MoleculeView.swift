@@ -2,33 +2,41 @@ import SwiftUI
 import SceneKit
 
 struct MoleculeView: View {
-	private static let atomRadius = CGFloat(0.5)
-	private static let connectionRadius = CGFloat(0.13)
-	
 	private let molecule: Molecule
+	private let moleculeModel: MoleculeModel
 	private let backgroundColor: Color
 	private let onAtomSelected: (Atom?) -> ()
 
-	private let scene: SCNScene
-	private var sceneView: SceneView?
+	private var sceneView = Wrap<SceneView>()
 
-	public init(from molecule: Molecule) {
-		self.init(molecule: molecule)
+	public init(
+		molecule: Molecule,
+		moleculeModel: MoleculeModel
+	) {
+		self.init(
+			molecule: molecule,
+			moleculeModel: moleculeModel,
+			backgroundColor: Color(UIColor.white),
+			onAtomSelected: { _ in }
+		)
 	}
 
 	private init(
 		molecule: Molecule,
-		backgroundColor: Color = Color(UIColor.white),
-		onAtomSelected: @escaping (Atom?) -> () = { _ in }
+		moleculeModel: MoleculeModel,
+		backgroundColor: Color,
+		onAtomSelected: @escaping (Atom?) -> ()
 	) {
 		self.molecule = molecule
+		self.moleculeModel = moleculeModel
 		self.backgroundColor = backgroundColor
 		self.onAtomSelected = onAtomSelected
-		self.scene = MoleculeView.generateScene(by: molecule)
 	}
 
 	var body: some View {
-		SceneView(using: scene)
+		let scene = MoleculeView.generateScene(molecule: molecule, moleculeModel: moleculeModel)
+		
+		sceneView.value = SceneView(using: scene)
 			.backgroundColor(backgroundColor)
 			.onNodeSelected{ nodes in
 				let atomNode = nodes.first(where: { !($0.name ?? "").isEmpty })
@@ -40,11 +48,14 @@ struct MoleculeView: View {
 
 				onAtomSelected(molecule.atoms[safe: atomIndex])
 			}
+
+		return sceneView.value!
 	}
 
 	public func backgroundColor(_ color: Color) -> MoleculeView {
 		MoleculeView(
 			molecule: self.molecule,
+			moleculeModel: self.moleculeModel,
 			backgroundColor: color,
 			onAtomSelected: self.onAtomSelected
 		)
@@ -53,77 +64,34 @@ struct MoleculeView: View {
 	public func onAtomSelected(_ onAtomSelected: @escaping (Atom?) -> ()) -> MoleculeView {
 		MoleculeView(
 			molecule: self.molecule,
+			moleculeModel: self.moleculeModel,
 			backgroundColor: self.backgroundColor,
 			onAtomSelected: onAtomSelected
 		)
 	}
 
-	private static func generateScene(by molecule: Molecule) -> SCNScene {
+	private static func generateScene(molecule: Molecule, moleculeModel: MoleculeModel) -> SCNScene {
 		let scene = SCNScene()
-		scene.rootNode.addChildNode(generateMolecule(from: molecule))
+		scene.rootNode.addChildNode(generateMoleculeModel(molecule: molecule, moleculeModel: moleculeModel))
 
 		return scene
 	}
 	
-	private static func generateMolecule(from molecule: Molecule) -> SCNNode {
-		let root = SCNNode()
-		
-		for (index, atom) in molecule.atoms.enumerated() {
-			root.addChildNode(generateAtom(from: atom, usingIndex: index))
+	private static func generateMoleculeModel(molecule: Molecule, moleculeModel: MoleculeModel) -> SCNNode {
+		return selectMoleculeModelGenerator(moleculeModel: moleculeModel).generateModel(from: molecule)
+	}
+
+	private static func selectMoleculeModelGenerator(moleculeModel: MoleculeModel) -> MoleculeModelGenerator {
+		switch moleculeModel {
+		case .ballAndStick:
+			return BallAndStickMoleculeModelGenerator()
+		case .spaceFilling:
+			return SpaceFillingMoleculeModelGenerator()
 		}
-
-		for bound in molecule.bounds {
-			let startAtom = molecule.atoms[safe: bound.atomId]
-			let endAtom = molecule.atoms[safe: bound.boundAtomId]
-
-			if startAtom != nil && endAtom != nil {
-				root.addChildNode(generateBound(start: startAtom!, end: endAtom!))
-			} else {
-				print("Can't create bound for atom with indices \(bound.atomId) and \(bound.boundAtomId)")
-			}
-		}
-		
-		return root
-	}
-	
-	private static func generateAtom(from atom: Atom, usingIndex index: Int) -> SCNNode {
-		let geometry = SCNSphere(radius: atomRadius)
-		geometry.materials.first?.diffuse.contents = atom.kind.color
-		
-		let node = SCNNode(geometry: geometry)
-		node.name = String(index)
-		node.position = atom.position
-		
-		return node
 	}
 
-	private static func generateBound(start startAtom: Atom, end endAtom: Atom) -> SCNNode {
-		let distanceBetweenAtoms = distance(startAtom.position, endAtom.position)
-		let centerBetweenAtoms = startAtom.position + (endAtom.position - startAtom.position) / 2
-
-		let geometry = SCNCylinder(radius: connectionRadius, height: CGFloat(distanceBetweenAtoms))
-		geometry.materials.first?.diffuse.contents = UIColor.lightGray
-		
-		let node = SCNNode(geometry: geometry)
-		node.position = centerBetweenAtoms
-		node.look(at: endAtom.position, up: SCNVector3(1, 0, 0), localFront: SCNVector3(0, 1, 0))
-		
-		return node
-	}
 
 	public func makeSnapshot() -> UIImage {
-		guard sceneView != nil else {
-			return UIImage()
-		}
-
-		return sceneView!.makeSnapshot()
+		return sceneView.value?.makeSnapshot() ?? UIImage()
 	}
-}
-
-struct MoleculeView_Previews: PreviewProvider {
-    static var previews: some View {
-		Text("")
-//		MoleculeView(from: MoleculeService.requestMolecule(ofMolecule: "001")).preferredColorScheme(.light)
-//		MoleculeView(from: MoleculeService.requestMolecule(ofMolecule: "001")).preferredColorScheme(.dark)
-    }
 }

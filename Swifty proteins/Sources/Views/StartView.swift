@@ -28,7 +28,8 @@ struct StartView: View {
                     } else {
                         if faceIDService.authorizationError != nil {
                             ZStack {
-                                VStack {                                    Text(appContext.authorizationError!.localizedDescription)
+                                VStack {
+//									Text(appContext.authorizationError!.localizedDescription)
                                     Image(systemName: "lock.slash")
                                 }
                             }

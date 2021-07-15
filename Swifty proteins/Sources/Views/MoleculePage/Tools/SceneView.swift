@@ -19,9 +19,9 @@ struct SceneView: UIViewRepresentable {
 		backgroundColor: Color = Color(UIColor.white)
 	) {
 		self.scene = scene
-		self.view = SCNView()
 		self.onNodeSelected = onNodeSelected
 		self.backgroundColor = backgroundColor
+		self.view = SCNView()
 	}
 
 	public func backgroundColor(_ color: Color) -> SceneView {
@@ -64,6 +64,7 @@ struct SceneView: UIViewRepresentable {
 	}
 	
 	public func updateUIView(_ view: SCNView, context: Context) {
+		view.scene = scene
 	}
 	
 	public func makeCoordinator() -> Coordinator {
