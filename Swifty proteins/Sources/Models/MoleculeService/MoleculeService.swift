@@ -45,11 +45,11 @@ class MoleculeService {
                         let index2 = line.index(line.startIndex, offsetBy: 6)
                         let index3 = line.index(line.startIndex, offsetBy: 9)
                         var tmp = String(line[..<index1]).trimmingCharacters(in: .whitespacesAndNewlines)
-                        let atomId = Int(tmp) ?? 0
+                        let atomId = (Int(tmp) ?? 2) - 1
                         tmp = String(line[index1..<index2]).trimmingCharacters(in: .whitespacesAndNewlines)
-                        let boundAtomId = Int(tmp) ?? 0
+                        let boundAtomId = (Int(tmp) ?? 2) - 1
                         tmp = String(line[index2..<index3]).trimmingCharacters(in: .whitespacesAndNewlines)
-                        let typeOfBound = Int(tmp) ?? 0
+                        let typeOfBound = Int(tmp) ?? 1
                         bounds.append(
 							Bound.parse(
 								atomId: atomId,
