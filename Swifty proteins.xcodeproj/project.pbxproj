@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		260105A8269FC35500B99048 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A7269FC35500B99048 /* StartView.swift */; };
-		260105AA269FC45A00B99048 /* FaceIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* FaceIDService.swift */; };
+		260105A8269FC35500B99048 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A7269FC35500B99048 /* LoginPage.swift */; };
+		260105AA269FC45A00B99048 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* LoginService.swift */; };
 		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
 		D114B2A82695F7450064F4C9 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114B2A72695F7450064F4C9 /* Blur.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
@@ -22,7 +22,6 @@
 		D11D645A268D92CB00548434 /* MoleculeListPage+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6459268D92CB00548434 /* MoleculeListPage+View.swift */; };
 		D11D64612690CD7F00548434 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D64602690CD7F00548434 /* Assets.swift */; };
 		D1554A42268A629800E2BC04 /* SwiftyProteins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1554A41268A629800E2BC04 /* SwiftyProteins.swift */; };
-		D1554A44268A629800E2BC04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1554A43268A629800E2BC04 /* ContentView.swift */; };
 		D1554A46268A629900E2BC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1554A45268A629900E2BC04 /* Assets.xcassets */; };
 		D1554A49268A629900E2BC04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1554A48268A629900E2BC04 /* Preview Assets.xcassets */; };
 		D16AC2F02696BCDD00D97F1F /* Atom+Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16AC2EF2696BCDD00D97F1F /* Atom+Kind.swift */; };
@@ -42,11 +41,14 @@
 		D1EBACAC269F465F004CB50F /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACAB269F465F004CB50F /* Wrap.swift */; };
 		D1EBACB226A0854E004CB50F /* Assets+MoleculeListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACB126A0854E004CB50F /* Assets+MoleculeListPage.swift */; };
 		D1EBACB426A0855D004CB50F /* Assets+MoleculePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACB326A0855D004CB50F /* Assets+MoleculePage.swift */; };
+		D1EBACB826A0AC50004CB50F /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACB726A0AC50004CB50F /* SplashPage.swift */; };
+		D1EBACBB26A0B401004CB50F /* Assets+SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACBA26A0B401004CB50F /* Assets+SplashPage.swift */; };
+		D1EBACBD26A0B455004CB50F /* Assets+LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACBC26A0B455004CB50F /* Assets+LoginPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		260105A7269FC35500B99048 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
-		260105A9269FC45A00B99048 /* FaceIDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDService.swift; sourceTree = "<group>"; };
+		260105A7269FC35500B99048 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		260105A9269FC45A00B99048 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
 		D114B2A72695F7450064F4C9 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
@@ -61,7 +63,6 @@
 		D11D64602690CD7F00548434 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		D1554A3E268A629800E2BC04 /* Swifty proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1554A41268A629800E2BC04 /* SwiftyProteins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyProteins.swift; sourceTree = "<group>"; };
-		D1554A43268A629800E2BC04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D1554A45268A629900E2BC04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1554A48268A629900E2BC04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1554A4A268A629900E2BC04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +82,9 @@
 		D1EBACAB269F465F004CB50F /* Wrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Wrap.swift; path = ../../../../../Documents/Wrap.swift; sourceTree = "<group>"; };
 		D1EBACB126A0854E004CB50F /* Assets+MoleculeListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+MoleculeListPage.swift"; sourceTree = "<group>"; };
 		D1EBACB326A0855D004CB50F /* Assets+MoleculePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+MoleculePage.swift"; sourceTree = "<group>"; };
+		D1EBACB726A0AC50004CB50F /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashPage.swift; path = ../../../../../../Documents/SplashPage.swift; sourceTree = "<group>"; };
+		D1EBACBA26A0B401004CB50F /* Assets+SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Assets+SplashPage.swift"; path = "../../../../../../Documents/Assets+SplashPage.swift"; sourceTree = "<group>"; };
+		D1EBACBC26A0B455004CB50F /* Assets+LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Assets+LoginPage.swift"; path = "../../../../../../Documents/Assets+LoginPage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		D11D643C268A6F9E00548434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D1EBACB926A0AF31004CB50F /* LoginService */,
 				D16AC2F32696BE9600D97F1F /* MoleculeService */,
 				D1EBAC8D269CD6EE004CB50F /* ImageSharingService */,
 			);
@@ -116,9 +121,8 @@
 		D11D643D268A6FA600548434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D1554A43268A629800E2BC04 /* ContentView.swift */,
-				260105A7269FC35500B99048 /* StartView.swift */,
-				260105A9269FC45A00B99048 /* FaceIDService.swift */,
+				D1EBACB526A0ABB0004CB50F /* SplashPage */,
+				D1EBACB626A0ABBF004CB50F /* LoginPage */,
 				D11D645B268D92D200548434 /* MoleculeListPage */,
 				D11D6452268CF32900548434 /* MoleculePage */,
 				D114B2A62695F73E0064F4C9 /* Tools */,
@@ -198,8 +202,8 @@
 		D11D645B268D92D200548434 /* MoleculeListPage */ = {
 			isa = PBXGroup;
 			children = (
-				D1EBACB126A0854E004CB50F /* Assets+MoleculeListPage.swift */,
 				D11D6459268D92CB00548434 /* MoleculeListPage+View.swift */,
+				D1EBACB126A0854E004CB50F /* Assets+MoleculeListPage.swift */,
 			);
 			path = MoleculeListPage;
 			sourceTree = "<group>";
@@ -321,6 +325,32 @@
 			path = MoleculePage;
 			sourceTree = "<group>";
 		};
+		D1EBACB526A0ABB0004CB50F /* SplashPage */ = {
+			isa = PBXGroup;
+			children = (
+				D1EBACB726A0AC50004CB50F /* SplashPage.swift */,
+				D1EBACBA26A0B401004CB50F /* Assets+SplashPage.swift */,
+			);
+			path = SplashPage;
+			sourceTree = "<group>";
+		};
+		D1EBACB626A0ABBF004CB50F /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				260105A7269FC35500B99048 /* LoginPage.swift */,
+				D1EBACBC26A0B455004CB50F /* Assets+LoginPage.swift */,
+			);
+			path = LoginPage;
+			sourceTree = "<group>";
+		};
+		D1EBACB926A0AF31004CB50F /* LoginService */ = {
+			isa = PBXGroup;
+			children = (
+				260105A9269FC45A00B99048 /* LoginService.swift */,
+			);
+			path = LoginService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,19 +438,21 @@
 				D11D6454268CF34100548434 /* MoleculeView.swift in Sources */,
 				D1EBACB226A0854E004CB50F /* Assets+MoleculeListPage.swift in Sources */,
 				D11D644B268C4D1E00548434 /* SceneView.swift in Sources */,
+				D1EBACBD26A0B455004CB50F /* Assets+LoginPage.swift in Sources */,
 				D1EBAC8A269B60B5004CB50F /* UIImage.swift in Sources */,
-				260105A8269FC35500B99048 /* StartView.swift in Sources */,
+				260105A8269FC35500B99048 /* LoginPage.swift in Sources */,
 				D1EBAC85269B36DC004CB50F /* LazyView.swift in Sources */,
 				D114B2A82695F7450064F4C9 /* Blur.swift in Sources */,
-				260105AA269FC45A00B99048 /* FaceIDService.swift in Sources */,
+				260105AA269FC45A00B99048 /* LoginService.swift in Sources */,
 				D11D644F268CDF1300548434 /* Molecule.swift in Sources */,
 				D1EBACA5269E1BCA004CB50F /* SpaceFillingMoleculeModelGenerator.swift in Sources */,
 				D16AC2F02696BCDD00D97F1F /* Atom+Kind.swift in Sources */,
-				D1554A44268A629800E2BC04 /* ContentView.swift in Sources */,
+				D1EBACB826A0AC50004CB50F /* SplashPage.swift in Sources */,
 				D16AC2F22696BE8D00D97F1F /* MoleculeRequest.swift in Sources */,
 				D1EBACAC269F465F004CB50F /* Wrap.swift in Sources */,
 				D1EBACA1269E19DC004CB50F /* MoleculeModel.swift in Sources */,
 				D1EBACA8269E1FE1004CB50F /* MoleculePage+ViewModel.swift in Sources */,
+				D1EBACBB26A0B401004CB50F /* Assets+SplashPage.swift in Sources */,
 				D11D64612690CD7F00548434 /* Assets.swift in Sources */,
 				D1554A42268A629800E2BC04 /* SwiftyProteins.swift in Sources */,
 				D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */,
