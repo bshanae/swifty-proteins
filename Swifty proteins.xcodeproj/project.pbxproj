@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		260105A8269FC35500B99048 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A7269FC35500B99048 /* StartView.swift */; };
+		260105AA269FC45A00B99048 /* FaceIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* FaceIDService.swift */; };
 		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
 		D114B2A82695F7450064F4C9 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114B2A72695F7450064F4C9 /* Blur.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		260105A7269FC35500B99048 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		260105A9269FC45A00B99048 /* FaceIDService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDService.swift; sourceTree = "<group>"; };
 		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
 		D114B2A72695F7450064F4C9 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				D1554A43268A629800E2BC04 /* ContentView.swift */,
+				260105A7269FC35500B99048 /* StartView.swift */,
+				260105A9269FC45A00B99048 /* FaceIDService.swift */,
 				D11D645B268D92D200548434 /* MoleculeListPage */,
 				D11D6452268CF32900548434 /* MoleculePage */,
 				D114B2A62695F73E0064F4C9 /* Tools */,
@@ -346,8 +352,10 @@
 				D11D6454268CF34100548434 /* MoleculeView.swift in Sources */,
 				D11D644B268C4D1E00548434 /* SceneView.swift in Sources */,
 				D1EBAC8A269B60B5004CB50F /* UIImage.swift in Sources */,
+				260105A8269FC35500B99048 /* StartView.swift in Sources */,
 				D1EBAC85269B36DC004CB50F /* LazyView.swift in Sources */,
 				D114B2A82695F7450064F4C9 /* Blur.swift in Sources */,
+				260105AA269FC45A00B99048 /* FaceIDService.swift in Sources */,
 				D11D644F268CDF1300548434 /* Molecule.swift in Sources */,
 				D16AC2F02696BCDD00D97F1F /* Atom+Kind.swift in Sources */,
 				D1554A44268A629800E2BC04 /* ContentView.swift in Sources */,
