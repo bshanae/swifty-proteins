@@ -122,5 +122,9 @@ struct IntroView: View {
         }
     } 
 }</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow to save snapshots!</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow to save snapshots!</string>
 </dict>
 </plist>
