@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		260105A8269FC35500B99048 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A7269FC35500B99048 /* LoginPage.swift */; };
 		260105AA269FC45A00B99048 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* LoginService.swift */; };
+		26871E0626A108810061C11D /* ImageSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26871E0526A108810061C11D /* ImageSharingService.swift */; };
 		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
 		D114B2A82695F7450064F4C9 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114B2A72695F7450064F4C9 /* Blur.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
@@ -31,7 +32,6 @@
 		D1EBAC85269B36DC004CB50F /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC84269B36DC004CB50F /* LazyView.swift */; };
 		D1EBAC88269B3D0B004CB50F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1EBAC87269B3D0B004CB50F /* Alamofire */; };
 		D1EBAC8A269B60B5004CB50F /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC89269B60B5004CB50F /* UIImage.swift */; };
-		D1EBAC91269CD70F004CB50F /* ImageSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */; };
 		D1EBAC9A269E0843004CB50F /* MoleculeModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBAC97269DE5D7004CB50F /* MoleculeModelGenerator.swift */; };
 		D1EBACA1269E19DC004CB50F /* MoleculeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACA0269E19DC004CB50F /* MoleculeModel.swift */; };
 		D1EBACA3269E1A9B004CB50F /* BallAndStickMoleculeModelGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EBACA2269E1A9B004CB50F /* BallAndStickMoleculeModelGenerator.swift */; };
@@ -49,6 +49,7 @@
 /* Begin PBXFileReference section */
 		260105A7269FC35500B99048 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		260105A9269FC45A00B99048 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		26871E0526A108810061C11D /* ImageSharingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSharingService.swift; sourceTree = "<group>"; };
 		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
 		D114B2A72695F7450064F4C9 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
@@ -72,7 +73,6 @@
 		D1EBAC7D269B0DFC004CB50F /* MoleculeListPage+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoleculeListPage+ViewModel.swift"; sourceTree = "<group>"; };
 		D1EBAC84269B36DC004CB50F /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		D1EBAC89269B60B5004CB50F /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageSharingService.swift; path = ../../../../../../Documents/ImageSharingService.swift; sourceTree = "<group>"; };
 		D1EBAC97269DE5D7004CB50F /* MoleculeModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeModelGenerator.swift; sourceTree = "<group>"; };
 		D1EBACA0269E19DC004CB50F /* MoleculeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoleculeModel.swift; path = ../../../../../../../Documents/MoleculeModel.swift; sourceTree = "<group>"; };
 		D1EBACA2269E1A9B004CB50F /* BallAndStickMoleculeModelGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallAndStickMoleculeModelGenerator.swift; path = ../../../../../../../../Documents/BallAndStickMoleculeModelGenerator.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		D1EBAC8D269CD6EE004CB50F /* ImageSharingService */ = {
 			isa = PBXGroup;
 			children = (
-				D1EBAC90269CD70F004CB50F /* ImageSharingService.swift */,
+				26871E0526A108810061C11D /* ImageSharingService.swift */,
 			);
 			path = ImageSharingService;
 			sourceTree = "<group>";
@@ -430,7 +430,6 @@
 				D1EBACAA269EB937004CB50F /* Molecule+ViewModel.swift in Sources */,
 				D11D6449268BC67D00548434 /* MoleculePage+View.swift in Sources */,
 				D11D6458268D09C500548434 /* Collection.swift in Sources */,
-				D1EBAC91269CD70F004CB50F /* ImageSharingService.swift in Sources */,
 				D1EBACB426A0855D004CB50F /* Assets+MoleculePage.swift in Sources */,
 				D1EBACA3269E1A9B004CB50F /* BallAndStickMoleculeModelGenerator.swift in Sources */,
 				D11D645A268D92CB00548434 /* MoleculeListPage+View.swift in Sources */,
@@ -452,6 +451,7 @@
 				D1EBACAC269F465F004CB50F /* Wrap.swift in Sources */,
 				D1EBACA1269E19DC004CB50F /* MoleculeModel.swift in Sources */,
 				D1EBACA8269E1FE1004CB50F /* MoleculePage+ViewModel.swift in Sources */,
+				26871E0626A108810061C11D /* ImageSharingService.swift in Sources */,
 				D1EBACBB26A0B401004CB50F /* Assets+SplashPage.swift in Sources */,
 				D11D64612690CD7F00548434 /* Assets.swift in Sources */,
 				D1554A42268A629800E2BC04 /* SwiftyProteins.swift in Sources */,

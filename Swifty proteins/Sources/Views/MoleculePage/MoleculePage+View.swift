@@ -14,6 +14,9 @@ struct MoleculePage {
 			self.molecule = molecule
 		}
 		
+        @State var items:[Any] = []
+        @State var sheet = false
+        
 		var body: some SwiftUI.View {
 			return ZStack {
 				getOrMakeMoleculeView()
@@ -32,7 +35,10 @@ struct MoleculePage {
 				HStack(spacing: 5) {
 					toggleModelButton
 					shareButton
-				}
+				}.sheet(isPresented: $sheet, content:{
+                    ImageSharingService(items: self.items)
+                })
+
 			)
 		}
 
@@ -84,7 +90,10 @@ struct MoleculePage {
 			Button(
 				action: {
 					if moleculeView.value != nil {
-						ImageSharingService.share(image: moleculeView.value!.makeSnapshot())
+						let image = moleculeView.value!.makeSnapshot()
+                        self.items.removeAll()
+                        self.items.append(image)
+                        self.sheet.toggle()
 					}
 				},
 				label: {
