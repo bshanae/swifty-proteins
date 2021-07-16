@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		260105A8269FC35500B99048 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A7269FC35500B99048 /* LoginPage.swift */; };
 		260105AA269FC45A00B99048 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* LoginService.swift */; };
-		26871E0626A108810061C11D /* ImageSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26871E0526A108810061C11D /* ImageSharingService.swift */; };
+		26871E0626A108810061C11D /* ImageSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26871E0526A108810061C11D /* ImageSharingViewController.swift */; };
 		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
 		D114B2A82695F7450064F4C9 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114B2A72695F7450064F4C9 /* Blur.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
@@ -49,7 +49,7 @@
 /* Begin PBXFileReference section */
 		260105A7269FC35500B99048 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		260105A9269FC45A00B99048 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
-		26871E0526A108810061C11D /* ImageSharingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSharingService.swift; sourceTree = "<group>"; };
+		26871E0526A108810061C11D /* ImageSharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSharingViewController.swift; sourceTree = "<group>"; };
 		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
 		D114B2A72695F7450064F4C9 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
@@ -113,7 +113,6 @@
 			children = (
 				D1EBACB926A0AF31004CB50F /* LoginService */,
 				D16AC2F32696BE9600D97F1F /* MoleculeService */,
-				D1EBAC8D269CD6EE004CB50F /* ImageSharingService */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,14 +279,6 @@
 			path = MoleculeListPage;
 			sourceTree = "<group>";
 		};
-		D1EBAC8D269CD6EE004CB50F /* ImageSharingService */ = {
-			isa = PBXGroup;
-			children = (
-				26871E0526A108810061C11D /* ImageSharingService.swift */,
-			);
-			path = ImageSharingService;
-			sourceTree = "<group>";
-		};
 		D1EBAC96269DE5D3004CB50F /* MoleculeModelGenerator */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +301,7 @@
 		D1EBAC9E269E19AE004CB50F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				26871E0526A108810061C11D /* ImageSharingViewController.swift */,
 				D1EBACB326A0855D004CB50F /* Assets+MoleculePage.swift */,
 				D11D644A268C4D1E00548434 /* SceneView.swift */,
 			);
@@ -451,7 +443,7 @@
 				D1EBACAC269F465F004CB50F /* Wrap.swift in Sources */,
 				D1EBACA1269E19DC004CB50F /* MoleculeModel.swift in Sources */,
 				D1EBACA8269E1FE1004CB50F /* MoleculePage+ViewModel.swift in Sources */,
-				26871E0626A108810061C11D /* ImageSharingService.swift in Sources */,
+				26871E0626A108810061C11D /* ImageSharingViewController.swift in Sources */,
 				D1EBACBB26A0B401004CB50F /* Assets+SplashPage.swift in Sources */,
 				D11D64612690CD7F00548434 /* Assets.swift in Sources */,
 				D1554A42268A629800E2BC04 /* SwiftyProteins.swift in Sources */,

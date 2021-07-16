@@ -90,7 +90,6 @@ struct MoleculeView: View {
 		}
 	}
 
-
 	public func makeSnapshot() -> UIImage {
 		return sceneView.value?.makeSnapshot() ?? UIImage()
 	}
