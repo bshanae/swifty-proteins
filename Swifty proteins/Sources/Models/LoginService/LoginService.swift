@@ -3,7 +3,8 @@ import SwiftUI
 import LocalAuthentication
 
 class LoginService: ObservableObject {
-    @Published var isLoggedIn = false
+    @Published public var isLoggedIn = false
+	@Published public var error: String?
 
 	public var canLogIn: Bool {
 		let context = LAContext()
@@ -23,7 +24,7 @@ class LoginService: ObservableObject {
     
     public func logInWithFaceId() {
         let context = LAContext()
-        var error: NSError? = nil
+		var error: NSError? = nil
         
         let canEvaluate = context.canEvaluatePolicy(
 			.deviceOwnerAuthenticationWithBiometrics,
@@ -36,7 +37,10 @@ class LoginService: ObservableObject {
 					.deviceOwnerAuthenticationWithBiometrics,
 					localizedReason: "To access your data"
 				) { (success, error) in
-					self.isLoggedIn = success
+					DispatchQueue.main.async {
+						self.isLoggedIn = success
+						self.error = error?.localizedDescription
+					}
                 }
             }
         }
