@@ -13,7 +13,7 @@
 		D1068D4C26A31E4B005DB6D7 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1726A31E4B005DB6D7 /* Collection.swift */; };
 		D1068D4D26A31E4B005DB6D7 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1826A31E4B005DB6D7 /* UIImage.swift */; };
 		D1068D4E26A31E4B005DB6D7 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1926A31E4B005DB6D7 /* SCNVector3.swift */; };
-		D1068D5026A31E4B005DB6D7 /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1B26A31E4B005DB6D7 /* Wrap.swift */; };
+		D1068D5026A31E4B005DB6D7 /* OptionalWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1B26A31E4B005DB6D7 /* OptionalWrap.swift */; };
 		D1068D5126A31E4B005DB6D7 /* SwiftyProteins.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D1D26A31E4B005DB6D7 /* SwiftyProteins.swift */; };
 		D1068D5226A31E4B005DB6D7 /* MoleculeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D2026A31E4B005DB6D7 /* MoleculeService.swift */; };
 		D1068D5326A31E4B005DB6D7 /* MoleculeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D2126A31E4B005DB6D7 /* MoleculeRequest.swift */; };
@@ -42,6 +42,7 @@
 		D1068D6A26A31E4B005DB6D7 /* Assets+SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D4326A31E4B005DB6D7 /* Assets+SplashPage.swift */; };
 		D1068D7026A31EFF005DB6D7 /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = D1068D4826A31E4B005DB6D7 /* ligands.txt */; };
 		D1068D7126A31EFF005DB6D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1068D4526A31E4B005DB6D7 /* Assets.xcassets */; };
+		D1068D7626A35E8C005DB6D7 /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068D7526A35E8C005DB6D7 /* Wrap.swift */; };
 		D1EBAC88269B3D0B004CB50F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1EBAC87269B3D0B004CB50F /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +53,7 @@
 		D1068D1726A31E4B005DB6D7 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		D1068D1826A31E4B005DB6D7 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		D1068D1926A31E4B005DB6D7 /* SCNVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
-		D1068D1B26A31E4B005DB6D7 /* Wrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
+		D1068D1B26A31E4B005DB6D7 /* OptionalWrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalWrap.swift; sourceTree = "<group>"; };
 		D1068D1D26A31E4B005DB6D7 /* SwiftyProteins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyProteins.swift; sourceTree = "<group>"; };
 		D1068D2026A31E4B005DB6D7 /* MoleculeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeService.swift; sourceTree = "<group>"; };
 		D1068D2126A31E4B005DB6D7 /* MoleculeRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculeRequest.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		D1068D4726A31E4B005DB6D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D1068D4826A31E4B005DB6D7 /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
 		D1068D7226A31FB7005DB6D7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1068D7526A35E8C005DB6D7 /* Wrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
 		D1554A3E268A629800E2BC04 /* Swifty proteins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty proteins.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,9 +148,9 @@
 		D1068D1426A31E4B005DB6D7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				D1068D7426A35E83005DB6D7 /* Wrap */,
 				D1068D1626A31E4B005DB6D7 /* Extensions */,
 				D1068D1526A31E4B005DB6D7 /* Assets.swift */,
-				D1068D1B26A31E4B005DB6D7 /* Wrap.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 			children = (
 				D1068D4126A31E4B005DB6D7 /* SplashPage */,
 				D1068D3126A31E4B005DB6D7 /* LoginPage */,
+				D1068D2B26A31E4B005DB6D7 /* MoleculeListPage */,
 				D1068D3426A31E4B005DB6D7 /* MoleculePage */,
 				D1068D2E26A31E4B005DB6D7 /* Tools */,
 			);
@@ -242,7 +245,6 @@
 		D1068D3126A31E4B005DB6D7 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
-				D1068D2B26A31E4B005DB6D7 /* MoleculeListPage */,
 				D1068D3226A31E4B005DB6D7 /* Assets+LoginPage.swift */,
 				D1068D3326A31E4B005DB6D7 /* LoginPage.swift */,
 			);
@@ -253,9 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				D1068D3526A31E4B005DB6D7 /* MoleculePage+View.swift */,
-				D1068D3626A31E4B005DB6D7 /* Tools */,
-				D1068D3A26A31E4B005DB6D7 /* MoleculeModel */,
 				D1068D4026A31E4B005DB6D7 /* MoleculeView.swift */,
+				D1068D3A26A31E4B005DB6D7 /* MoleculeModel */,
+				D1068D3626A31E4B005DB6D7 /* Tools */,
 			);
 			path = MoleculePage;
 			sourceTree = "<group>";
@@ -315,6 +317,15 @@
 				D1068D4726A31E4B005DB6D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D1068D7426A35E83005DB6D7 /* Wrap */ = {
+			isa = PBXGroup;
+			children = (
+				D1068D7526A35E8C005DB6D7 /* Wrap.swift */,
+				D1068D1B26A31E4B005DB6D7 /* OptionalWrap.swift */,
+			);
+			path = Wrap;
 			sourceTree = "<group>";
 		};
 		D1554A35268A629800E2BC04 = {
@@ -442,7 +453,7 @@
 				D1068D5426A31E4B005DB6D7 /* Atom+Kind.swift in Sources */,
 				D1068D6526A31E4B005DB6D7 /* SpaceFillingMoleculeModelGenerator.swift in Sources */,
 				D1068D5326A31E4B005DB6D7 /* MoleculeRequest.swift in Sources */,
-				D1068D5026A31E4B005DB6D7 /* Wrap.swift in Sources */,
+				D1068D5026A31E4B005DB6D7 /* OptionalWrap.swift in Sources */,
 				D1068D5D26A31E4B005DB6D7 /* Blur.swift in Sources */,
 				D1068D6126A31E4B005DB6D7 /* ImageSharingViewController.swift in Sources */,
 				D1068D6326A31E4B005DB6D7 /* SceneView.swift in Sources */,
@@ -450,6 +461,7 @@
 				D1068D5A26A31E4B005DB6D7 /* Assets+MoleculeListPage.swift in Sources */,
 				D1068D6826A31E4B005DB6D7 /* MoleculeView.swift in Sources */,
 				D1068D6226A31E4B005DB6D7 /* Assets+MoleculePage.swift in Sources */,
+				D1068D7626A35E8C005DB6D7 /* Wrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

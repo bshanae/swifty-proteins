@@ -91,6 +91,7 @@ struct MoleculeListPage {
 				RoundedRectangle(cornerRadius: 5)
 					.stroke(Assets.accentColor.opacity(0.5), lineWidth: 1)
 					.background(Assets.MoleculeListPage.elementColor)
+					.aspectRatio(1, contentMode: .fit)
 				
 				if isMoleculeloading(moleculeId: moleculeId) {
 					ProgressView()

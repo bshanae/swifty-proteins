@@ -7,15 +7,17 @@ struct MoleculePage {
 		@StateObject private var viewModel = ViewModel()
 		@State private var selectedAtom: Atom?
 
-		private var moleculeView = Wrap<MoleculeView>()
-		private var lastMoleculeModel = Wrap<MoleculeModel>()
+		private var moleculeView = OptionalWrap<MoleculeView>()
+		private var lastMoleculeModel = OptionalWrap<MoleculeModel>()
 		
 		public init(ofMolecule molecule: Molecule) {
 			self.molecule = molecule
 		}
 		
-		private var image: Wrap<UIImage> = Wrap<UIImage>()
+		private var image = OptionalWrap<UIImage>()
         @State var sheet = false
+		
+		@State var testImage: UIImage?
         
 		var body: some SwiftUI.View {
 			return ZStack {
@@ -80,13 +82,13 @@ struct MoleculePage {
 							.resizable()
 							.aspectRatio(contentMode: .fit)
 							.frame(height: 26)
-							.colorMultiply(.blue)
+							.colorMultiply(Assets.accentColor)
 					case .spaceFilling:
 						Image("MoleculePage:SpaceFillingModel")
 							.resizable()
 							.aspectRatio(contentMode: .fit)
 							.frame(height: 26)
-							.colorMultiply(.blue)
+							.colorMultiply(Assets.accentColor)
 					}
 				}
 			)
@@ -97,6 +99,7 @@ struct MoleculePage {
 				action: {
 					if moleculeView.value != nil {
 						self.image.value = moleculeView.value!.makeSnapshot()
+						self.testImage = self.image.value
                         self.sheet.toggle()
 					}
 				},

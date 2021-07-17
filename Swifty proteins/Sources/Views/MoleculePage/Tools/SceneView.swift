@@ -2,9 +2,8 @@ import SwiftUI
 import SceneKit
 
 struct SceneView: UIViewRepresentable {
-	
 	private let scene: SCNScene
-	private let view: SCNView
+	private var view: Wrap<SCNView>
 
 	private var onNodeSelected: ([SCNNode]) -> ()
 	private var backgroundColor: Color
@@ -21,7 +20,7 @@ struct SceneView: UIViewRepresentable {
 		self.scene = scene
 		self.onNodeSelected = onNodeSelected
 		self.backgroundColor = backgroundColor
-		self.view = SCNView()
+		self.view = Wrap(SCNView())
 	}
 
 	public func backgroundColor(_ color: Color) -> SceneView {
@@ -39,16 +38,22 @@ struct SceneView: UIViewRepresentable {
 			backgroundColor: self.backgroundColor
 		)
 	}
-	
+
+	public func makeSnapshot() -> UIImage {
+		view.value.snapshot()
+	}
+
+	// MARK: - UIViewRepresentable
+
 	public func makeUIView(context: Context) -> SCNView {
-		view.scene = scene
-		view.backgroundColor = UIColor(backgroundColor)
+		view.value.scene = scene
+		view.value.backgroundColor = UIColor(backgroundColor)
 
-		view.allowsCameraControl = true
-		view.autoenablesDefaultLighting = true
-		view.antialiasingMode = .multisampling4X
+		view.value.allowsCameraControl = true
+		view.value.autoenablesDefaultLighting = true
+		view.value.antialiasingMode = .multisampling4X
 
-		view.pointOfView = scene.rootNode.childNode(
+		view.value.pointOfView = scene.rootNode.childNode(
 			withName: "camera",
 			recursively: true
 		)
@@ -58,28 +63,30 @@ struct SceneView: UIViewRepresentable {
 			action: #selector(context.coordinator.handleTap(_:))
 		)
 
-		view.addGestureRecognizer(tapGesture)
+		view.value.addGestureRecognizer(tapGesture)
 		
-		return view
+		return view.value
 	}
 	
 	public func updateUIView(_ view: SCNView, context: Context) {
+		self.view.value = view
 		view.scene = scene
+		context.coordinator.view = view
 	}
 	
 	public func makeCoordinator() -> Coordinator {
-		Coordinator(view, onNodeSelected)
+		Coordinator(view: view.value, onNodeSelected: onNodeSelected)
 	}
 	
+	// MARK: - Coordinator
+	
 	public class Coordinator: NSObject {
-		private let view: SCNView
-		private let onNodeSelected: ([SCNNode]) -> ()
+		public var view: SCNView
+		public let onNodeSelected: ([SCNNode]) -> ()
 
-		init(_ view: SCNView, _ onNodeSelected: @escaping ([SCNNode]) -> ()) {
+		public init(view: SCNView, onNodeSelected: @escaping ([SCNNode]) -> ()) {
 			self.view = view
 			self.onNodeSelected = onNodeSelected
-
-			super.init()
 		}
 		
 		@objc func handleTap(_ gestureRecognize: UIGestureRecognizer) {
@@ -94,9 +101,5 @@ struct SceneView: UIViewRepresentable {
 
 			onNodeSelected(hitResults.map( {$0.node }))
 		}
-	}
-
-	public func makeSnapshot() -> UIImage {
-		view.snapshot()
 	}
 }

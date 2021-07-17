@@ -7,7 +7,7 @@ struct MoleculeView: View {
 	private let backgroundColor: Color
 	private let onAtomSelected: (Atom?) -> ()
 
-	private var sceneView = Wrap<SceneView>()
+	private var sceneView = OptionalWrap<SceneView>()
 
 	public init(
 		molecule: Molecule,
@@ -91,6 +91,6 @@ struct MoleculeView: View {
 	}
 
 	public func makeSnapshot() -> UIImage {
-		return sceneView.value?.makeSnapshot() ?? UIImage()
+		return sceneView.value!.makeSnapshot()
 	}
 }

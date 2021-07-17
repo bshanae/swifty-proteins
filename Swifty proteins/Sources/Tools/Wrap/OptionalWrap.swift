@@ -1,6 +1,6 @@
 import Foundation
 
-class Wrap<T> {
+class OptionalWrap<T> {
 	public var value: T? = nil
 
 	public var hasValue: Bool {
