@@ -38,7 +38,10 @@ struct MoleculePage {
 				}.sheet(
 					isPresented: $sheet,
 					content: {
-						ImageSharingViewController(image: image.value ?? UIImage())
+						ImageSharingViewController(
+							image: image.value!,
+							title: molecule.id
+						)
 					}
 				)
 

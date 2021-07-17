@@ -11,6 +11,7 @@
 		260105AA269FC45A00B99048 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260105A9269FC45A00B99048 /* LoginService.swift */; };
 		26871E0626A108810061C11D /* ImageSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26871E0526A108810061C11D /* ImageSharingViewController.swift */; };
 		26FDDA3D2693C7C500795142 /* Bound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FDDA3C2693C7C500795142 /* Bound.swift */; };
+		D1068CF626A2FCF6005DB6D7 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1068CF526A2FCF6005DB6D7 /* ImageCacher.swift */; };
 		D114B2A82695F7450064F4C9 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114B2A72695F7450064F4C9 /* Blur.swift */; };
 		D11D6446268BB0BC00548434 /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6445268BB0BC00548434 /* SCNVector3.swift */; };
 		D11D6449268BC67D00548434 /* MoleculePage+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D6448268BC67D00548434 /* MoleculePage+View.swift */; };
@@ -51,6 +52,7 @@
 		260105A9269FC45A00B99048 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		26871E0526A108810061C11D /* ImageSharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSharingViewController.swift; sourceTree = "<group>"; };
 		26FDDA3C2693C7C500795142 /* Bound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bound.swift; sourceTree = "<group>"; };
+		D1068CF526A2FCF6005DB6D7 /* ImageCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		D114B2A72695F7450064F4C9 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		D11D6445268BB0BC00548434 /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
 		D11D6448268BC67D00548434 /* MoleculePage+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoleculePage+View.swift"; sourceTree = "<group>"; };
@@ -111,7 +113,8 @@
 		D11D643C268A6F9E00548434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D1EBACB926A0AF31004CB50F /* LoginService */,
+				260105A9269FC45A00B99048 /* LoginService.swift */,
+				D1068CF526A2FCF6005DB6D7 /* ImageCacher.swift */,
 				D16AC2F32696BE9600D97F1F /* MoleculeService */,
 			);
 			path = Models;
@@ -335,14 +338,6 @@
 			path = LoginPage;
 			sourceTree = "<group>";
 		};
-		D1EBACB926A0AF31004CB50F /* LoginService */ = {
-			isa = PBXGroup;
-			children = (
-				260105A9269FC45A00B99048 /* LoginService.swift */,
-			);
-			path = LoginService;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1EBACAA269EB937004CB50F /* Molecule+ViewModel.swift in Sources */,
+				D1068CF626A2FCF6005DB6D7 /* ImageCacher.swift in Sources */,
 				D11D6449268BC67D00548434 /* MoleculePage+View.swift in Sources */,
 				D11D6458268D09C500548434 /* Collection.swift in Sources */,
 				D1EBACB426A0855D004CB50F /* Assets+MoleculePage.swift in Sources */,
